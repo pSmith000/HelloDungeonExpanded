@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HelloDungeonExpanded
 {
-    class Boss
+    class Boss : Entity
     {
     }
 }
