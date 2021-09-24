@@ -5,15 +5,24 @@ using System.Threading;
 
 namespace HelloDungeonExpanded
 {
+    public enum ItemType
+    {
+        DEFENSE, 
+        ATTACK,
+        NONE
+    }
+
     public struct Item
     {
         public string Name;
-        public string Job;
+        public float StatBoost;
+        public ItemType Type;
     }
     class Game
     {
         private int _currentScene;
         private bool _gameOver;
+
         public void Run()
         {
             //The main game loop
