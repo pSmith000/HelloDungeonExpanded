@@ -52,6 +52,13 @@ namespace HelloDungeonExpanded
         {
 
         }
+        
+        public void InitializeItems()
+        {
+            Item gun = new Item { Name = "Handgun", StatBoost = 25, Type = ItemType.ATTACK};
+            
+            Item flashlight = new Item { Name = "Flashlight", StatBoost = 15, Type = ItemType.DEFENSE}
+        }
 
         public void DisplayOpeningMenu()
         {
