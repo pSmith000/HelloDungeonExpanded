@@ -22,6 +22,8 @@ namespace HelloDungeonExpanded
     {
         private int _currentScene;
         private bool _gameOver;
+        private Player _player;
+        private Entity _currentEnemy;
 
         public void Run()
         {
@@ -51,15 +53,58 @@ namespace HelloDungeonExpanded
 
         }
 
+        public void DisplayOpeningMenu()
+        {
+            int choice = GetInput("Welcome to the game. Would you like to: \n", "Start a New Game", "Load an Old Save");
+        }
+
+        void GetPlayerName()
+        {
+            bool validInputRecieved = true;
+            while (validInputRecieved == true)
+            {
+                TypeOutWords("Welcome! Please enter your name.\n> ", 50);
+                _playerName = Console.ReadLine();
+                Console.Clear();
+
+                int choice = GetInput("You've entered " + _playerName + ", are you sure you want to keep this name?", 
+                    "Yes", "No");
+                if (choice == 0)
+                {
+                    validInputRecieved = false;
+                }
+                else
+                {
+                    validInputRecieved = true;
+                }
+            }
+            
+        }
+
+        /// <summary>
+        /// Gets the players choice of character. Updates player stats based on
+        /// the character chosen.
+        /// </summary>
+        public void CharacterSelection()
+        {
+            int choice = GetInput("Nice to meet you " + _playerName + ". Please select a character.", "Brawler", "Mad Man", "Thief");
+
+            if (choice == 0)
+            {
+                _player = new Player(_playerName, 50, 25, 0, _wizardItems, "Wizard");
+            }
+            else if (choice == 1)
+            {
+                _player = new Player(_playerName, 75, 15, 10, _knightItems, "Knight");
+            }
+        }
+
         public void DisplayCurrentScene()
         {
 
         }
 
-        public void DisplayOpeningMenu()
-        {
-            int choice = GetInput("Welcome to the game. Would you like to: \n", "Start a New Game", "Load an Old Save");
-        }
+        
 
         public void TypeOutWords(string sentence, int timeBetweenLetters)
         {
