@@ -16,13 +16,13 @@ namespace HelloDungeonExpanded
         /// <returns>Gets the name of the entity</returns>
         public string Name
         {
-            get { return _name; }
+            get {return _name;}
         }
 
         /// <returns>Gets the health of the entity</returns>
         public float Health
         {
-            get { return _health; }
+            get {return _health;}            
         }
 
         /// <returns>Gets the attack power of the entity</returns>
